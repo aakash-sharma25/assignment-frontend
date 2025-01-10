@@ -34,7 +34,9 @@ const PantryStaff = () => {
 
   const fetchPantryStaff = async () => {
     try {
-      const response = await axios.get("/api/v1/manager/all-pantryStaff");
+      const response = await axios.get(
+        "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/all-pantryStaff"
+      );
       setPantryStaff(response.data.pantryStaff);
     } catch (error) {
       console.error("Error fetching pantry staff data:", error);
@@ -51,9 +53,12 @@ const PantryStaff = () => {
     e.preventDefault();
 
     try {
-      await axios.post("/api/v1/manager/add-pantryStaff", formData);
-      fetchPantryStaff(); 
-      setOpenModal(false); 
+      await axios.post(
+        "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/add-pantryStaff",
+        formData
+      );
+      fetchPantryStaff();
+      setOpenModal(false);
       setFormData({
         name: "",
         email: "",
@@ -121,7 +126,6 @@ const PantryStaff = () => {
         </Table>
       </TableContainer>
 
-     
       <Dialog open={openModal} onClose={() => setOpenModal(false)}>
         <DialogTitle>Add Pantry Staff</DialogTitle>
         <DialogContent>

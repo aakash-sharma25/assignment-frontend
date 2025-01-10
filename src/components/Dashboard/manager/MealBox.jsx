@@ -35,14 +35,14 @@
 //       setLoading(true);
 //       try {
 //         // const [dietChartResponse:data, staffResponse] = await Promise.all([
-//         //   axios.get("/api/v1/manager/all-dietCharts"),
-//         //   axios.get("/api/v1/manager/all-pantryStaff"),
+//         //   axios.get("https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/all-dietCharts"),
+//         //   axios.get("https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/all-pantryStaff"),
 //         // ]);
 //         const { data: dietChartResponse } = await axios.get(
-//           "/api/v1/manager/all-dietCharts"
+//           "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/all-dietCharts"
 //         );
 //         const { data: staffResponse } = await axios.get(
-//           "/api/v1/manager/all-pantryStaff"
+//           "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/all-pantryStaff"
 //         );
 
 //         setDietCharts(dietChartResponse.dietCharts);
@@ -73,8 +73,8 @@
 //     try {
 //       const endpoint =
 //         updateType === "Preparation"
-//           ? "/api/v1/manager/update-preparationStatus"
-//           : "/api/v1/manager/update-deliveryStatus";
+//           ? "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/update-preparationStatus"
+//           : "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/update-deliveryStatus";
 
 //       const data =
 //         updateType === "Preparation"
@@ -241,7 +241,9 @@ const MealBox = () => {
 
   const fetchDietCharts = async () => {
     try {
-      const response = await axios.get("/api/v1/manager/all-dietCharts");
+      const response = await axios.get(
+        "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/all-dietCharts"
+      );
       setDietCharts(response.data.dietCharts);
     } catch (error) {
       console.error("Error fetching diet charts:", error);
@@ -250,7 +252,9 @@ const MealBox = () => {
 
   const fetchStaff = async () => {
     try {
-      const response = await axios.get("/api/v1/manager/all-pantryStaff");
+      const response = await axios.get(
+        "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/all-pantryStaff"
+      );
       setStaff(response.data.pantryStaff);
     } catch (error) {
       console.error("Error fetching staff:", error);
@@ -278,17 +282,23 @@ const MealBox = () => {
       }
 
       if (assignType === "preparation") {
-        await axios.patch("/api/v1/pantry/assign-preparation", {
-          dietChartId: selectedDietChart._id,
-          preparationStatus: "In Progress",
-          preparedBy: selectedStaff,
-        });
+        await axios.patch(
+          "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/pantry/assign-preparation",
+          {
+            dietChartId: selectedDietChart._id,
+            preparationStatus: "In Progress",
+            preparedBy: selectedStaff,
+          }
+        );
       } else if (assignType === "delivery") {
-        await axios.patch("/api/v1/pantry/assign-delivery", {
-          dietChartId: selectedDietChart._id,
-          deliveryStatus: "In Progress",
-          deliveredBy: selectedStaff,
-        });
+        await axios.patch(
+          "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/pantry/assign-delivery",
+          {
+            dietChartId: selectedDietChart._id,
+            deliveryStatus: "In Progress",
+            deliveredBy: selectedStaff,
+          }
+        );
       }
 
       fetchDietCharts(); // Refresh the data
@@ -302,15 +312,21 @@ const MealBox = () => {
   const updateStatus = async (dietChartId, statusType, statusValue) => {
     try {
       if (statusType === "preparation") {
-        await axios.patch("/api/v1/pantry/update-preparation-status", {
-          dietChartId,
-          preparationStatus: statusValue,
-        });
+        await axios.patch(
+          "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/pantry/update-preparation-status",
+          {
+            dietChartId,
+            preparationStatus: statusValue,
+          }
+        );
       } else if (statusType === "delivery") {
-        await axios.patch("/api/v1/pantry/update-delivery-status", {
-          dietChartId,
-          deliveryStatus: statusValue,
-        });
+        await axios.patch(
+          "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/pantry/update-delivery-status",
+          {
+            dietChartId,
+            deliveryStatus: statusValue,
+          }
+        );
       }
 
       fetchDietCharts(); // Refresh the data

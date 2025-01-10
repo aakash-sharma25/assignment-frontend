@@ -22,7 +22,9 @@ const SelectPantryStaffDialog = ({ open, onClose, onSelect }) => {
     const fetchPantryStaff = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("/api/v1/manager/all-pantryStaff");
+        const response = await axios.get(
+          "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/all-pantryStaff"
+        );
         setPantryStaff(response.data.pantryStaff);
         setLoading(false);
       } catch (error) {

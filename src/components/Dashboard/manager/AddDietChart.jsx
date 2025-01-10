@@ -48,7 +48,10 @@ export default function AddDietChart({
     };
 
     axios
-      .post("/api/v1/manager/add-diet", dietChartData)
+      .post(
+        "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/add-diet",
+        dietChartData
+      )
       .then((response) => {
         console.log("Diet chart added successfully", response.data.dietChart);
         setOpenModal(false);
@@ -67,7 +70,8 @@ export default function AddDietChart({
   };
   const fetchDiet = async () => {
     const { data } = await axios.get(
-      "/api/v1/manager/diet/" + selectedPatientId
+      "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/diet/" +
+        selectedPatientId
     );
     console.log(data);
     setFormData({

@@ -14,7 +14,10 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/v1/auth/login", form);
+      const { data } = await axios.post(
+        "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/auth/login",
+        form
+      );
       //   setUser(res.data);
       localStorage.setItem("userData", JSON.stringify(data.user));
       if (data.user?.role === "Manager") {

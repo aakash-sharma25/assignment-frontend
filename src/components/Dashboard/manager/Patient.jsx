@@ -44,7 +44,9 @@ const Patient = () => {
   useEffect(() => {
     const fetchPatients = async () => {
       try {
-        const response = await axios.get("/api/v1/manager/patients");
+        const response = await axios.get(
+          "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/patients"
+        );
         setPatients(response.data.patients);
       } catch (error) {
         console.error("Error fetching patients:", error);
@@ -66,7 +68,7 @@ const Patient = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "/api/v1/manager/add-patient",
+        "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/add-patient",
         formData
       );
       setPatients([...patients, response.data.patient]);
