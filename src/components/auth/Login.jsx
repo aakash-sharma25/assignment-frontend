@@ -24,7 +24,7 @@ const Login = () => {
         // console.log(user);
         navigate("/manager/patient");
       } else {
-        navigate("/pantry");
+        navigate("/pantry/staff");
       }
       console.log(data);
       alert("Login Successful");

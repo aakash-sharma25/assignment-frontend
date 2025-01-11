@@ -5,7 +5,8 @@ import Signup from "./components/auth/Signup";
 import Patient from "./components/Dashboard/manager/Patient";
 import PantryStaff from "./components/Dashboard/manager/PantryStaff";
 import MealBox from "./components/Dashboard/manager/MealBox";
-import ManagerLayout from "./components/Dashboard/ManagerLayout";
+import ManagerLayout from "./components/Dashboard/manager/ManagerLayout";
+import PantryLayout from "./components/Dashboard/Pantry/PantryLayout";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           <Route path="patient" element={<Patient />} />
           <Route path="pantrystaff" element={<PantryStaff />} />
           <Route path="mealbox" element={<MealBox />} />
+        </Route>
+        <Route path="/pantry" element={<PantryLayout />}>
+          <Route path="staff" element={<MealBox />} />
         </Route>
       </Routes>
     </>
