@@ -225,8 +225,11 @@ import {
   TextField,
 } from "@mui/material";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const MealBox = () => {
+  const { pathname } = useLocation();
+  // console.log(pathname.startsWith("/pantry"));
   const [dietCharts, setDietCharts] = useState([]);
   const [staff, setStaff] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
@@ -347,7 +350,10 @@ const MealBox = () => {
               <TableCell>Delivered By</TableCell>
               <TableCell>Preparation Status</TableCell>
               <TableCell>Delivery Status</TableCell>
-              <TableCell>Actions</TableCell>
+
+              {pathname.startsWith("/manager") && (
+                <TableCell>Actions</TableCell>
+              )}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -393,22 +399,24 @@ const MealBox = () => {
                     </Select>
                   </FormControl>
                 </TableCell>
-                <TableCell>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={() => handleOpenDialog(chart, "preparation")}
-                  >
-                    Assign Preparation
-                  </Button>
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    onClick={() => handleOpenDialog(chart, "delivery")}
-                  >
-                    Assign Delivery
-                  </Button>
-                </TableCell>
+                {pathname.startsWith("/manager") && (
+                  <TableCell>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={() => handleOpenDialog(chart, "preparation")}
+                    >
+                      Assign Preparation
+                    </Button>
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      onClick={() => handleOpenDialog(chart, "delivery")}
+                    >
+                      Assign Delivery
+                    </Button>
+                  </TableCell>
+                )}
               </TableRow>
             ))}
           </TableBody>
