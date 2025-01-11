@@ -359,15 +359,12 @@ const MealBox = () => {
                   {chart.patientId?.roomDetails?.bedNumber}
                 </TableCell>
                 <TableCell>
-                  {chart.preparedBy
-                    ? staff.find((s) => s._id === chart.preparedBy)?.info.name
-                    : "Not Assigned"}
+                  {chart?.preparedBy?.name}
+                  {/* {chart.preparedBy
+                    ? staff.find((s) => s._id === chart.preparedBy?.name)?.info.name
+                    : "Not Assigned"} */}
                 </TableCell>
-                <TableCell>
-                  {chart.deliveredBy
-                    ? staff.find((s) => s._id === chart.deliveredBy)?.info.name
-                    : "Not Assigned"}
-                </TableCell>
+                <TableCell>{chart?.deliveredBy?.name}</TableCell>
                 <TableCell>
                   <FormControl fullWidth>
                     <Select

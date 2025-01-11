@@ -53,7 +53,7 @@ const Patient = () => {
       }
     };
     fetchPatients();
-    console.log("hello")
+    console.log("hello");
   }, []);
 
   // Handle form input changes
