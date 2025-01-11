@@ -5,6 +5,7 @@ import Signup from "./components/auth/Signup";
 import Patient from "./components/Dashboard/manager/Patient";
 import PantryStaff from "./components/Dashboard/manager/PantryStaff";
 import MealBox from "./components/Dashboard/manager/MealBox";
+import ManagerLayout from "./components/Dashboard/ManagerLayout";
 
 function App() {
   return (
@@ -13,9 +14,11 @@ function App() {
         <Route path="/" element={<Login />} />
         {/* <Route path="/login" element={<Login />} /> */}
         <Route path="/register" element={<Signup />} />
-        <Route path="/manager/patient" element={<Patient />} />
-        <Route path="/manager/pantrystaff" element={<PantryStaff />} />
-        <Route path="/manager/mealbox" element={<MealBox />} />
+        <Route path="/manager" element={<ManagerLayout />}>
+          <Route path="patient" element={<Patient />} />
+          <Route path="pantrystaff" element={<PantryStaff />} />
+          <Route path="mealbox" element={<MealBox />} />
+        </Route>
       </Routes>
     </>
   );
