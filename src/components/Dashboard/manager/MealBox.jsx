@@ -39,7 +39,10 @@ const MealBox = () => {
   const fetchDietCharts = async () => {
     try {
       const response = await axios.get(
-        "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/all-dietCharts"
+        "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/all-dietCharts",
+        {
+          withCredentials: true,
+        }
       );
       setDietCharts(response.data.dietCharts);
     } catch (error) {
@@ -85,6 +88,9 @@ const MealBox = () => {
             dietChartId: selectedDietChart._id,
             preparationStatus: "In Progress",
             preparedBy: selectedStaff,
+          },
+          {
+            withCredentials: true,
           }
         );
       } else if (assignType === "delivery") {
@@ -94,6 +100,9 @@ const MealBox = () => {
             dietChartId: selectedDietChart._id,
             deliveryStatus: "In Progress",
             deliveredBy: selectedStaff,
+          },
+          {
+            withCredentials: true,
           }
         );
       }
@@ -114,6 +123,8 @@ const MealBox = () => {
           {
             dietChartId,
             preparationStatus: statusValue,
+          },{
+            withCredentials: true,
           }
         );
       } else if (statusType === "delivery") {
@@ -122,6 +133,8 @@ const MealBox = () => {
           {
             dietChartId,
             deliveryStatus: statusValue,
+          },{
+            withCredentials: true,
           }
         );
       }

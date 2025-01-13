@@ -16,7 +16,10 @@ const Login = () => {
     try {
       const { data } = await axios.post(
         "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/auth/login",
-        form
+        form,
+        {
+          withCredentials: true,
+        }
       );
       //   setUser(res.data);
       localStorage.setItem("userData", JSON.stringify(data.user));

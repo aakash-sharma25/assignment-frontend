@@ -11,14 +11,16 @@ const Signup = () => {
     role: "Manager",
   });
 
-  const handleChange = (e) => { 
+  const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/auth/register", form);
+      await axios.post("/auth/register", form, {
+        withCredentials: true,
+      });
       alert("Signup Successful");
     } catch (error) {
       alert("Signup Failed");

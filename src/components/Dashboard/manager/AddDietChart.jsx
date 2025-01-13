@@ -71,7 +71,10 @@ export default function AddDietChart({
   const fetchDiet = async () => {
     const { data } = await axios.get(
       "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/diet/" +
-        selectedPatientId
+        selectedPatientId,
+      {
+        withCredentials: true,
+      }
     );
     console.log(data);
     setFormData({
