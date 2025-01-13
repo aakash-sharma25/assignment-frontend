@@ -115,7 +115,7 @@ const PantryStaff = () => {
                 </TableCell>
                 <TableCell>
                   {/* Placeholder buttons for further actions */}
-                  <Button
+                  {/* <Button
                     variant="contained"
                     color="secondary"
                     style={{ marginRight: "10px" }}
@@ -124,7 +124,7 @@ const PantryStaff = () => {
                   </Button>
                   <Button variant="contained" color="error">
                     Delete
-                  </Button>
+                  </Button> */}
                 </TableCell>
               </TableRow>
             ))}
@@ -174,12 +174,12 @@ const PantryStaff = () => {
               style={{ marginBottom: "10px" }}
             />
             <DialogActions>
-              {/* <Button onClick={() => setOpenModal(false)} color="secondary">
+              <Button onClick={() => setOpenModal(false)} color="secondary">
                 Cancel
               </Button>
               <Button type="submit" variant="contained" color="primary">
                 Add
-              </Button> */}
+              </Button>
             </DialogActions>
           </form>
         </DialogContent>
