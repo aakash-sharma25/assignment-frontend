@@ -47,7 +47,10 @@ const Patient = () => {
     const fetchPatients = async () => {
       try {
         const response = await axios.get(
-          "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/patients"
+          "https://assignment-aakashs-projects-ae05d47e.vercel.app/api/v1/manager/patients",
+          {
+            withCredentials: true,
+          }
         );
         setPatients(response.data.patients);
       } catch (error) {
@@ -174,12 +177,14 @@ const Patient = () => {
               </Grid>
               <Grid item xs={12}>
                 <Select
+                  fullWidth
+                  label="Gender"
                   name="gender"
                   value={formData.gender}
                   onChange={handleChange}
                 >
                   <MenuItem value="Male">Male</MenuItem>
-                  <MenuItem value="Female">Female Progress</MenuItem>
+                  <MenuItem value="Female">Female</MenuItem>
                 </Select>
               </Grid>
               <Grid item xs={12}>
