@@ -174,12 +174,12 @@ const PantryStaff = () => {
               style={{ marginBottom: "10px" }}
             />
             <DialogActions>
-              <Button onClick={() => setOpenModal(false)} color="secondary">
+              {/* <Button onClick={() => setOpenModal(false)} color="secondary">
                 Cancel
               </Button>
               <Button type="submit" variant="contained" color="primary">
                 Add
-              </Button>
+              </Button> */}
             </DialogActions>
           </form>
         </DialogContent>

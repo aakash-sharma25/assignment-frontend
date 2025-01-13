@@ -123,7 +123,8 @@ const MealBox = () => {
           {
             dietChartId,
             preparationStatus: statusValue,
-          },{
+          },
+          {
             withCredentials: true,
           }
         );
@@ -133,13 +134,14 @@ const MealBox = () => {
           {
             dietChartId,
             deliveryStatus: statusValue,
-          },{
+          },
+          {
             withCredentials: true,
           }
         );
       }
 
-      fetchDietCharts(); // Refresh the data
+      fetchDietCharts();
     } catch (error) {
       console.error("Error updating status:", error);
     }
