@@ -17,6 +17,8 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import axios from "axios";
 import AddDietChart from "./AddDietChart";
@@ -171,14 +173,14 @@ const Patient = () => {
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  label="Gender"
+                <Select
                   name="gender"
                   value={formData.gender}
                   onChange={handleChange}
-                  required
-                />
+                >
+                  <MenuItem value="Male">Male</MenuItem>
+                  <MenuItem value="Female">Female Progress</MenuItem>
+                </Select>
               </Grid>
               <Grid item xs={12}>
                 <TextField
